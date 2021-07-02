@@ -1,0 +1,63 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+.wp-block-innocode-wp-block-tabs {
+  margin-top: 30px;
+  margin-bottom: 30px;
+
+  & .tabs-content {
+	border: 1px solid lightgrey;
+  }
+
+  & .tab-title-wrap {
+	border: 1px solid lightgrey;
+	border-bottom: 0;
+  }
+
+  .tabs-wrapper {
+	.blocks-rich-text__tinymce.mce-content-body {
+	  font-size: 14px;
+	}
+  }
+
+  .tabs-headings {
+	position: relative;
+  }
+
+  .tabs-title {
+	display: flex;
+	overflow-x: hidden;
+
+	&:hover,
+	&:focus {
+	  overflow-x: auto;
+	}
+  }
+
+  .tabs-content {
+	padding: 25px;
+  }
+
+  .tab-title {
+	word-break: initial;
+
+	&-wrap {
+	  border-top-right-radius: 5px;
+	  border-top-left-radius: 5px;
+	  padding: 10px 15px;
+	  margin-right: 5px;
+	  display: flex;
+	  align-items: center;
+	  position: relative;
+	  cursor: pointer;
+
+	  &.active {
+		color: white;
+		background: #398047;
+	  }
+	}
+  }
+}

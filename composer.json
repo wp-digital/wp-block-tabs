@@ -1,0 +1,16 @@
+{
+	"name": "innocode-digital/wp-block-tabs",
+	"version": "0.1.0",
+	"type": "wordpress-plugin",
+	"license": "GPL-2.0+",
+	"require": {
+		"php": ">=7.1",
+		"composer/installers": "^1.9"
+	},
+	"description": "Displays tabbed content",
+	"authors": [
+		{
+			"name": "Innocode"
+		}
+	]
+}

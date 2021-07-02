@@ -1,0 +1,27 @@
+{
+	"apiVersion": 2,
+	"name": "innocode/wp-block-tabs",
+	"title": "Tabs",
+	"category": "innocode",
+	"icon": "archive",
+	"description": "Displays tabbed content",
+	"supports": {
+		"anchor": true,
+		"html": false
+	},
+	"styles": [
+		{
+			"name": "regular",
+			"label": "Default",
+			"isDefault": true
+		},
+		{
+			"name": "alternative",
+			"label": "Alternative"
+		}
+	],
+	"textdomain": "wp-block-tabs",
+	"editorScript": "file:./build/index.js",
+	"editorStyle": "file:./build/index.css",
+	"style": "file:./build/style-index.css"
+}
