@@ -6,20 +6,31 @@ export default function save( props ) {
 	const { attributes } = props;
 	const {
 		tabsHeadings,
-		activeTab
+		activeTab,
+		isVertical
 	} = attributes;
 
 	return (
 		<div { ...useBlockProps.save() }>
-			<div className="tabs-headings">
-				{ tabsHeadings.map( ( heading, index ) => (
-					<div className={ "tab-heading" + ( activeTab === index ? " active" : "") } key={ index }>
-						{ heading }
-					</div>
-				) ) }
-			</div>
-			<div className="tabs-content">
-				<InnerBlocks.Content />
+			<div
+				className={`tabs-wrapper${
+					isVertical ? " vertical-tabs" : ""
+				}`}
+			>
+				<div className={`tabs-headings${
+					isVertical ? " vertical-headings" : ""
+				}`}>
+					{ tabsHeadings.map( ( heading, index ) => (
+						<div className={ "tab-heading" + ( activeTab === index ? " active" : "") } key={ index }>
+							{ heading }
+						</div>
+					) ) }
+				</div>
+				<div className={`tabs-content${
+					isVertical ? " vertical-content" : ""
+				}`}>
+					<InnerBlocks.Content />
+				</div>
 			</div>
 		</div>
 	);

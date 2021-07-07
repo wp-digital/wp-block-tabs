@@ -15,12 +15,13 @@ import { __ } from '@wordpress/i18n';
 import { createBlock } from '@wordpress/blocks';;
 import { Component } from '@wordpress/element';
 import {
-	InnerBlocks,
 	BlockControls,
+	InnerBlocks,
+	InspectorControls,
 	RichText,
 	useBlockProps
 } from '@wordpress/block-editor';
-import { ToolbarButton, ToolbarGroup } from '@wordpress/components';
+import { PanelBody, ToggleControl, ToolbarButton, ToolbarGroup } from '@wordpress/components';
 import { withState, compose } from '@wordpress/compose';
 import { withSelect, withDispatch } from '@wordpress/data';
 
@@ -51,9 +52,10 @@ class Tabs extends Component {
 			getClientIdsWithDescendants,
 		} = this.props;
 		const {
-			tabsHeadings,
+			blockID,
 			activeTab,
-			blockID
+			tabsHeadings,
+			isVertical
 		} = attributes;
 
 		window.innocodeTabsBlocks = window.innocodeTabsBlocks || [];
@@ -119,7 +121,9 @@ class Tabs extends Component {
 			block.SortableItem = SortableElement(
 				( { value, i, properties, onChangeTitle, onRemoveTitle, toggleTitle } ) => (
 					<div
-						className={`tab-title-wrap SortableItem${
+						className={`tab-title-${
+							properties.attributes.isVertical ? "vertical-" : ""
+						}wrap SortableItem${
 							properties.attributes.activeTab === i ? " active" : ""
 						}`}
 						onClick={ () => toggleTitle( 'tab-title', i ) }
@@ -163,7 +167,9 @@ class Tabs extends Component {
 					 onAddTab,
 				 } ) => (
 					<div
-						className="tabs-title SortableList"
+						className={`tabs-title${
+							properties.attributes.isVertical ? "-vertical" : ""
+						} SortableList`}
 						useWindowAsScrollContainer={ true }
 					>
 						{ items.map( ( value, index ) => (
@@ -179,7 +185,9 @@ class Tabs extends Component {
 							/>
 						) ) }
 						<div
-							className="tab-title-wrap"
+							className={`tab-title-${
+								properties.attributes.isVertical ? "vertical-" : ""
+							}wrap`}
 							key={ properties.attributes.tabsHeadings.length }
 							onClick={ () => onAddTab( properties.attributes.tabsHeadings.length ) }
 						>
@@ -229,14 +237,27 @@ class Tabs extends Component {
 		}
 
 		return [
+			<InspectorControls>
+				<PanelBody title={ __('Tabs Layout', 'wp-block-tabs') }>
+					<ToggleControl
+						label= { __('Vertical', 'wp-block-tabs' ) }
+						checked={ isVertical }
+						onChange={ ( isVertical ) => setAttributes( { isVertical } ) }
+					/>
+				</PanelBody>
+			</InspectorControls>,
 			<div
-				className="tabs-wrapper"
+				className={`tabs-wrapper${
+					isVertical ? " vertical-tabs" : ""
+				}`}
 			>
 				<div
-					className="tabs-headings"
+					className={`tabs-headings${
+						isVertical ? " vertical-headings" : ""
+					}`}
 				>
 					<block.SortableList
-						axis="x"
+						axis={ isVertical ? "y" : "x" }
 						properties={ this.props }
 						items={ attributes.tabsHeadings }
 						onSortEnd={ ( { oldIndex, newIndex } ) => {
@@ -283,7 +304,9 @@ class Tabs extends Component {
 					/>
 				</div>
 				<div
-					className="tabs-content"
+					className={`tabs-content${
+						isVertical ? " vertical-content" : ""
+					}`}
 				>
 					<InnerBlocks
 						templateLock={ false }

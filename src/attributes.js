@@ -10,5 +10,9 @@ export default {
 	tabsHeadings: {
 		type: "array",
 		default: []
-	}
+	},
+	isVertical: {
+		type: "boolean",
+		default: false
+	},
 }

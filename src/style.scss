@@ -21,10 +21,17 @@
 	.blocks-rich-text__tinymce.mce-content-body {
 	  font-size: 14px;
 	}
+	&.vertical-tabs {
+	  display: flex;
+	}
   }
 
   .tabs-headings {
 	position: relative;
+
+	&.vertical-headings {
+	  width: 25%;
+	}
   }
 
   .tabs-title {
@@ -35,10 +42,6 @@
 	&:focus {
 	  overflow-x: auto;
 	}
-  }
-
-  .tabs-content {
-	padding: 25px;
   }
 
   .tab-title {
@@ -58,6 +61,28 @@
 		color: white;
 		background: #398047;
 	  }
+	}
+
+	&-vertical-wrap {
+	  border-bottom: 1px solid #DEE0E3;
+	  padding: 10px 15px;
+	  display: flex;
+	  align-items: center;
+	  position: relative;
+	  cursor: pointer;
+
+	  &.active {
+		border-bottom: 1px solid #398047;
+	  }
+	}
+  }
+
+  .tabs-content {
+	padding: 25px;
+
+	&.vertical-content {
+	  width: 75%;
+	  border: 0;
 	}
   }
 }
