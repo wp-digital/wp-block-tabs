@@ -13,7 +13,7 @@ import './style.scss';
 
 registerBlockType('innocode/wp-block-tab', {
 	title: __( 'Tab', 'wp-block-tabs' ),
-	parent: 'innocode/wp-block-tabs',
+	parent: [ 'innocode/wp-block-tabs' ],
 	description: __( 'Tab content block', 'wp-block-tabs' ),
 	category: 'innocode',
 	attributes: tabAttributes,
