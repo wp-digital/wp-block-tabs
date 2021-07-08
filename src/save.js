@@ -21,9 +21,9 @@ export default function save( props ) {
 					isVertical ? " vertical-headings" : ""
 				}`}>
 					{ tabsHeadings.map( ( heading, index ) => (
-						<div className={ "tab-heading" + ( activeTab === index ? " active" : "") } key={ index }>
+						<a href={`#tab-${index}`} className={ "tab-heading" + ( activeTab === index ? " active" : "") } key={ index }>
 							{ heading }
-						</div>
+						</a>
 					) ) }
 				</div>
 				<div className={`tabs-content${
