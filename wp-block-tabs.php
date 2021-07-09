@@ -24,3 +24,17 @@ function innocode_wp_block_tabs_block_init() {
 	register_block_type_from_metadata( __DIR__ );
 }
 add_action( 'init', 'innocode_wp_block_tabs_block_init' );
+
+function innocode_wp_block_tabs_block_script() {
+	if( is_singular()
+	    && has_block( 'innocode/wp-block-tabs', get_the_ID() ) ) {
+		$script_js     = 'build/frontend/script.js';
+
+		wp_enqueue_script(
+			'innocode-wp-block-tabs-block',
+			plugins_url( $script_js, __FILE__ )
+		);
+	}
+}
+
+add_action( 'wp_enqueue_scripts', 'innocode_wp_block_tabs_block_script');
