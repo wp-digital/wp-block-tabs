@@ -32,7 +32,8 @@ function innocode_wp_block_tabs_block_script() {
 
 		wp_enqueue_script(
 			'innocode-wp-block-tabs-block',
-			plugins_url( $script_js, __FILE__ )
+			plugins_url( $script_js, __FILE__ ),
+			[ 'jquery' ]
 		);
 	}
 }
