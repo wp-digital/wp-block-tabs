@@ -4,6 +4,7 @@
  *
  * Replace them with your own styles or remove the file completely.
  */
+
 .wp-block-innocode-wp-block-tabs {
   margin-top: 30px;
   margin-bottom: 30px;
@@ -13,8 +14,7 @@
   }
 
   & .tab-title-wrap {
-	border: 1px solid lightgrey;
-	border-bottom: 0;
+		border: 1px solid lightgrey;
   }
 
   .tabs-wrapper {
@@ -44,45 +44,60 @@
 	}
   }
 
-  .tab-title {
-	word-break: initial;
+  
 
-	&-wrap {
-	  border-top-right-radius: 5px;
-	  border-top-left-radius: 5px;
-	  padding: 10px 15px;
-	  margin-right: 5px;
-	  display: flex;
-	  align-items: center;
-	  position: relative;
-	  cursor: pointer;
-
-	  &.active {
-		color: white;
-		background: #398047;
-	  }
+	.tab-actions {
+		// position: absolute;
+		// top: 50%;
+		// right: 2px;
+		// transform: translateY(-50%);
 	}
-
-	&-vertical-wrap {
-	  border-bottom: 1px solid #DEE0E3;
-	  padding: 10px 15px;
-	  display: flex;
-	  align-items: center;
-	  position: relative;
-	  cursor: pointer;
-
-	  &.active {
-		border-bottom: 1px solid #398047;
-	  }
-	}
-  }
 
   .tabs-content {
-	padding: 25px;
+		padding: 25px;
 
 	&.vertical-content {
 	  width: 75%;
 	  border: 0;
 	}
   }
+}
+
+.tab-title {
+	word-break: initial;
+	padding-right: 10px;
+
+	&-wrap {
+		display: flex;
+		font-size: 14px;
+		line-height: 1.57;
+		color: #151515;
+		padding: 8px 10px 6px 10px;
+		border-radius: 8px;
+		border: 1px solid #676769;
+		text-decoration: none;
+		align-items: center;
+		position: relative;
+		cursor: pointer;
+		margin-right: 5px;
+		width: auto !important;
+
+		&.active {
+			color: white;
+			background: #676769;
+		}
+	}
+
+	&-vertical-wrap {
+		border-bottom: 1px solid #676769;
+		padding: 10px 15px;
+		display: flex;
+		align-items: center;
+		position: relative;
+		cursor: pointer;
+
+		&.active {
+		border-bottom: 1px solid #676769;
+		}
+	}
 }
