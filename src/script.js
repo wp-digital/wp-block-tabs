@@ -1,1 +1,5 @@
-alert('done on stage')
+import tabs from './frontend/tabs';
+
+document.addEventListener('DOMContentLoaded', () => {
+  tabs();
+});
