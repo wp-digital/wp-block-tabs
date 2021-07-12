@@ -22,7 +22,7 @@
 	],
 	"textdomain": "wp-block-tabs",
 	"editorScript": "file:./build/index.js",
-	"script": "file:./build/tabs.js",
+	"script": "file:./build/script.js",
 	"editorStyle": "file:./build/index.css",
 	"style": "file:./build/style-index.css"
 }
