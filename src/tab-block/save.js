@@ -3,7 +3,7 @@ import { InnerBlocks } from "@wordpress/block-editor";
 
 export default function save( props ) {
 	const { attributes } = props;
-	let { index, parentBlockId } = attributes;
+	let { index, parentBlockId, isActive } = attributes;
 
 	if( ! index ) {
 		index = 0;
@@ -11,7 +11,8 @@ export default function save( props ) {
 
 	return (
 		<div { ...useBlockProps.save( {
-			id: `tab-${parentBlockId}-${index}`
+			id: `tab-${parentBlockId}-${index}`,
+			className: isActive ? 'active' : ''
 		} ) }>
 			<InnerBlocks.Content />
 		</div>
