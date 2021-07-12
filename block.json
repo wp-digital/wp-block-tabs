@@ -21,8 +21,8 @@
 		}
 	],
 	"textdomain": "wp-block-tabs",
-	"editorScript": "file:./build/common/index.js",
-	"script": "file:./build/frontend/script.js",
-	"editorStyle": "file:./build/common/index.css",
-	"style": "file:./build/common/style-index.css"
+	"editorScript": "file:./build/index.js",
+	"script": "file:./build/tabs.js",
+	"editorStyle": "file:./build/index.css",
+	"style": "file:./build/style-index.css"
 }
