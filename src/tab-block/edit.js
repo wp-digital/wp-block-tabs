@@ -25,6 +25,13 @@ export default withSelect( ( select, props ) => ( {
 	return (
 		<div style={{ display: isActive ? "block" : "none" }}>
 			<InnerBlocks
+				templateLock={false}
+				template={[
+					[
+						"core/paragraph",
+						{ placeholder: __("Enter content for this tab") },
+					],
+				]}
 				allowedBlocks={ALLOWED_BLOCKS}
 				renderAppender={() => <InnerBlocks.ButtonBlockAppender />}
 			/>

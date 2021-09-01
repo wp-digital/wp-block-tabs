@@ -3,6 +3,9 @@ export default {
 		type: "string",
 		default: "",
 	},
+	activeControl: {
+		type: "string",
+	},
 	activeTab: {
 		type: "number",
 		default: 0,

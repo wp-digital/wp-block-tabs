@@ -10,6 +10,7 @@ import tabEdit from './tab-block/edit';
 import tabSave from './tab-block/save';
 
 import './style.scss';
+import {useBlockProps} from "@wordpress/block-editor";
 
 registerBlockType('innocode/wp-block-tab', {
 	title: __( 'Tab', 'wp-block-tabs' ),
@@ -23,6 +24,12 @@ registerBlockType('innocode/wp-block-tab', {
 
 registerBlockType( 'innocode/wp-block-tabs', {
 	attributes,
-	edit: Edit,
+	edit: props => (
+		<div { ...useBlockProps( {
+			className: `wp-block-innocode-wp-block-tabs`,
+		} ) }>
+			<Edit { ...props }/>
+		</div>
+	),
 	save,
 } );

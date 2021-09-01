@@ -274,7 +274,17 @@ class Tabs extends Component {
 								this.props.block.clientId,
 								newIndex
 							);
-							showControls( 'tab-title', oldIndex );
+
+							setAttributes({
+								activeControl: `tab-title-${newIndex}`,
+								activeTab: newIndex,
+							});
+
+							tabs.forEach((tab, i) => {
+								updateBlockAttributes(tab.clientId, {
+									isActive: oldIndex === i,
+								});
+							});
 						}}
 						onRemoveTitle={ ( i ) => {
 							setAttributes( {
@@ -348,10 +358,4 @@ export default compose( [
 		};
 	}),
 	withState({ order: [] }),
-] )( props =>
-	<div { ...useBlockProps( {
-		className: `wp-block-innocode-wp-block-tabs`,
-	} ) }>
-		<Tabs { ...props }/>
-	</div>
-);
+] )( Tabs );
