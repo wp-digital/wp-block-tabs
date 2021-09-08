@@ -1,3 +1,4 @@
+import { __ } from '@wordpress/i18n';
 import { InnerBlocks } from "@wordpress/block-editor";
 import { select, withSelect } from '@wordpress/data';
 import { applyFilters } from "@wordpress/hooks";
@@ -29,7 +30,7 @@ export default withSelect( ( select, props ) => ( {
 				template={[
 					[
 						"core/paragraph",
-						{ placeholder: __("Enter content for this tab") },
+						{ placeholder: __( 'Enter content for this tab', 'wp-block-tabs') },
 					],
 				]}
 				allowedBlocks={ALLOWED_BLOCKS}
