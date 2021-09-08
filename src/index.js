@@ -1,5 +1,6 @@
 import { __ } from '@wordpress/i18n';
 import { registerBlockType } from '@wordpress/blocks';
+import { useBlockProps } from "@wordpress/block-editor";
 
 import attributes from './attributes';
 import Edit from './edit';
@@ -10,7 +11,6 @@ import tabEdit from './tab-block/edit';
 import tabSave from './tab-block/save';
 
 import './style.scss';
-import {useBlockProps} from "@wordpress/block-editor";
 
 registerBlockType('innocode/wp-block-tab', {
 	title: __( 'Tab', 'wp-block-tabs' ),
