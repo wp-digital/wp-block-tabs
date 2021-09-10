@@ -1,6 +1,5 @@
 import { __ } from '@wordpress/i18n';
 import { registerBlockType } from '@wordpress/blocks';
-import { useBlockProps } from "@wordpress/block-editor";
 
 import attributes from './attributes';
 import Edit from './edit';
@@ -24,12 +23,6 @@ registerBlockType('innocode/wp-block-tab', {
 
 registerBlockType( 'innocode/wp-block-tabs', {
 	attributes,
-	edit: props => (
-		<div { ...useBlockProps( {
-			className: `wp-block-innocode-wp-block-tabs`,
-		} ) }>
-			<Edit { ...props }/>
-		</div>
-	),
+	edit: Edit,
 	save,
 } );

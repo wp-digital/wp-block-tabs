@@ -358,4 +358,8 @@ export default compose( [
 		};
 	}),
 	withState({ order: [] }),
-] )( Tabs );
+] )( props =>
+	<div className={'wp-block-innocode-wp-block-tabs'}>
+		<Tabs { ...props }/>
+	</div>
+);
