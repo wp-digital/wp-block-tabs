@@ -10,10 +10,7 @@ export default function save( props ) {
 	}
 
 	return (
-		<div { ...useBlockProps.save( {
-			id: `tab-${parentBlockId}-${index}`,
-			className: isActive ? 'active' : ''
-		} ) }>
+		<div className={ isActive ? 'active' : '' } id={`tab-${parentBlockId}-${index}`}>
 			<InnerBlocks.Content />
 		</div>
 	);

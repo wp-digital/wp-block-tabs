@@ -12,26 +12,24 @@ export default function save( props ) {
 	} = attributes;
 
 	return (
-		<div { ...useBlockProps.save() }>
-			<div
-				className={`tabs-wrapper${
-					isVertical ? " vertical-tabs" : ""
-				}`}
-			>
-				<div className={`tabs-headings${
-					isVertical ? " vertical-headings" : ""
-				}`}>
-					{ tabsHeadings.map( ( heading, index ) => (
-						<a href={`tab-${blockID}-${index}`} className={ "tab-heading" + ( activeTab === index ? " active" : "") } key={ index }>
-							{ heading }
-						</a>
-					) ) }
-				</div>
-				<div className={`tabs-content${
-					isVertical ? " vertical-content" : ""
-				}`}>
-					<InnerBlocks.Content />
-				</div>
+		<div
+			className={`tabs-wrapper${
+				isVertical ? " vertical-tabs" : ""
+			}`}
+		>
+			<div className={`tabs-headings${
+				isVertical ? " vertical-headings" : ""
+			}`}>
+				{ tabsHeadings.map( ( heading, index ) => (
+					<a href={`tab-${blockID}-${index}`} className={ "tab-heading" + ( activeTab === index ? " active" : "") } key={ index }>
+						{ heading }
+					</a>
+				) ) }
+			</div>
+			<div className={`tabs-content${
+				isVertical ? " vertical-content" : ""
+			}`}>
+				<InnerBlocks.Content />
 			</div>
 		</div>
 	);

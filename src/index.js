@@ -24,5 +24,5 @@ registerBlockType('innocode/wp-block-tab', {
 registerBlockType( 'innocode/wp-block-tabs', {
 	attributes,
 	edit: Edit,
-	save,
+	save
 } );
