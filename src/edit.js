@@ -256,62 +256,64 @@ class Tabs extends Component {
 						isVertical ? " vertical-headings" : ""
 					}`}
 				>
-					<block.SortableList
-						axis={ isVertical ? "y" : "x" }
-						properties={ this.props }
-						items={ attributes.tabsHeadings }
-						onSortEnd={ ( { oldIndex, newIndex } ) => {
-							const titleItems = attributes.tabsHeadings.slice( 0 );
-							setAttributes( {
-								tabsHeadings: arrayMove( titleItems, oldIndex, newIndex ),
-								activeTab: newIndex,
-							} );
+					<div className="tabs-headings-container">
+						<block.SortableList
+							axis={ isVertical ? "y" : "x" }
+							properties={ this.props }
+							items={ attributes.tabsHeadings }
+							onSortEnd={ ( { oldIndex, newIndex } ) => {
+								const titleItems = attributes.tabsHeadings.slice( 0 );
+								setAttributes( {
+									tabsHeadings: arrayMove( titleItems, oldIndex, newIndex ),
+									activeTab: newIndex,
+								} );
 
-							moveBlockToPosition(
-								tabs.filter( ( tab ) => tab.attributes.index === oldIndex )[ 0 ]
-									.clientId,
-								this.props.block.clientId,
-								this.props.block.clientId,
-								newIndex
-							);
+								moveBlockToPosition(
+									tabs.filter( ( tab ) => tab.attributes.index === oldIndex )[ 0 ]
+										.clientId,
+									this.props.block.clientId,
+									this.props.block.clientId,
+									newIndex
+								);
 
-							setAttributes({
-								activeControl: `tab-title-${newIndex}`,
-								activeTab: newIndex,
-							});
-
-							tabs.forEach((tab, i) => {
-								updateBlockAttributes(tab.clientId, {
-									isActive: oldIndex === i,
+								setAttributes({
+									activeControl: `tab-title-${newIndex}`,
+									activeTab: newIndex,
 								});
-							});
-						}}
-						onRemoveTitle={ ( i ) => {
-							setAttributes( {
-								tabsHeadings: [
-									...tabsHeadings.slice( 0, i ),
-									...tabsHeadings.slice( i + 1 ),
-								],
-								activeTab: 0,
-							});
-							removeBlock(
-								tabs.filter( ( tab ) => tab.attributes.index === i )[ 0 ].clientId
-							);
-							showControls( 'tab-title', 0 );
-						}}
-						onAddTab={ addTab }
-						toggleTitle={ showControls }
-						useDragHandle={ true }
-						onChangeTitle={ ( content, i ) => {
-							setAttributes({
-								tabsHeadings: [
-									...attributes.tabsHeadings.slice( 0, i ),
-									content,
-									...attributes.tabsHeadings.slice( i + 1 ),
-								],
-							} );
-						} }
-					/>
+
+								tabs.forEach((tab, i) => {
+									updateBlockAttributes(tab.clientId, {
+										isActive: oldIndex === i,
+									});
+								});
+							}}
+							onRemoveTitle={ ( i ) => {
+								setAttributes( {
+									tabsHeadings: [
+										...tabsHeadings.slice( 0, i ),
+										...tabsHeadings.slice( i + 1 ),
+									],
+									activeTab: 0,
+								});
+								removeBlock(
+									tabs.filter( ( tab ) => tab.attributes.index === i )[ 0 ].clientId
+								);
+								showControls( 'tab-title', 0 );
+							}}
+							onAddTab={ addTab }
+							toggleTitle={ showControls }
+							useDragHandle={ true }
+							onChangeTitle={ ( content, i ) => {
+								setAttributes({
+									tabsHeadings: [
+										...attributes.tabsHeadings.slice( 0, i ),
+										content,
+										...attributes.tabsHeadings.slice( i + 1 ),
+									],
+								} );
+							} }
+						/>
+					</div>
 				</div>
 				<div
 					className={`tabs-content${
